@@ -49,14 +49,14 @@ export async function parseExcelFile(file: File): Promise<ProjectData> {
         const monthIndices: Record<string, number> = {}
 
         headers.forEach((header, index) => {
-          const monthIndex = monthNames.findIndex(
+          const monthIndex = shortMonthNames.findIndex(
             (m) =>
               header.toLowerCase().includes(m.toLowerCase()) ||
-              header.toLowerCase().includes(shortMonthNames[monthNames.indexOf(m)].toLowerCase()),
+              header.toLowerCase().includes(shortMonthNames[shortMonthNames.indexOf(m)].toLowerCase()),
           )
 
           if (monthIndex !== -1) {
-            monthIndices[monthNames[monthIndex]] = index
+            monthIndices[shortMonthNames[monthIndex]] = index
           }
         })
 

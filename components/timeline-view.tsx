@@ -78,15 +78,15 @@ export function TimelineView({ data }: TimelineViewProps) {
 
   // Generate color legend
   const colorLegend = [
-    { color: "#e11d48", label: "Start" },
-    { color: "#fb7185", label: "" },
-    { color: "#fbbf24", label: "" },
-    { color: "#a3e635", label: "" },
-    { color: "#34d399", label: "" },
-    { color: "#22d3ee", label: "" },
-    { color: "#818cf8", label: "" },
-    { color: "#a855f7", label: "" },
-    { color: "#d946ef", label: "End" },
+    { color: "#e11d48", label: "A" },
+    { color: "#fb7185", label: "B" },
+    { color: "#fbbf24", label: "C" },
+    { color: "#a3e635", label: "D" },
+    { color: "#34d399", label: "E" },
+    { color: "#22d3ee", label: "F" },
+    { color: "#818cf8", label: "G" },
+    { color: "#a855f7", label: "H" },
+    { color: "#d946ef", label: "J" },
   ]
 
   return (
@@ -99,11 +99,15 @@ export function TimelineView({ data }: TimelineViewProps) {
           <table className="w-full border-collapse">
             <thead>
               <tr>
-                <th className="border-b border-r p-2 bg-gray-800 text-white sticky left-0 z-10 min-w-[200px]">
+                <th className="border-b border-r p-2 bg-[#214560] text-white sticky left-0 z-10 min-w-[200px]">
                   Project Name
                 </th>
-                {data.months.map((month) => (
-                  <th key={month} className="border-b p-0 bg-gray-800 text-white" colSpan={4}>
+                {data.months.map((month, idx) => (
+                  <th
+                    key={month}
+                    className={`border-b p-0 bg-[#214560] text-white ${idx !== data.months.length - 1 ? "border-r" : ""}`}
+                    colSpan={4}
+                  >
                     <div className="p-2 text-center">{month}</div>
                     <div className="flex">
                       {weeks[month].map((week) => (
@@ -121,7 +125,7 @@ export function TimelineView({ data }: TimelineViewProps) {
                 <>
                   {/* Group header row */}
                   <tr key={groupName} className="group-header">
-                    <td className="border-r p-2 font-bold sticky left-0 bg-blue-100 dark:bg-blue-900 z-10">
+                    <td className="border-r p-2 font-bold sticky left-0 bg-blue-100 dark:bg-blue-100 z-10">
                       <div className="flex items-center">
                         <div className={`w-4 h-4 rounded mr-2 ${getGroupColor(groupName)}`}></div>
                         {groupName}
@@ -147,7 +151,7 @@ export function TimelineView({ data }: TimelineViewProps) {
                         className="hover:bg-gray-50 dark:hover:bg-gray-900 cursor-pointer"
                         onClick={() => setSelectedProject(selectedProject === projectName ? null : projectName)}
                       >
-                        <td className="border-r p-2 font-medium sticky left-0 bg-white dark:bg-gray-950 z-10">
+                        <td className="border-r p-2 font-medium sticky left-0  bg-white border-b black dark:bg-gray-950 z-10">
                           {projectName}
                         </td>
 
