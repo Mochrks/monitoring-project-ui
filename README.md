@@ -14,7 +14,7 @@
 
 ## Overview
 
-**Monitoring Project UI** is a dashboard application built with **Next.js** and **ShadCN UI**, designed to visualize project progress through interactive charts and timeline tables. The application features:
+**Monitoring Project UI** is a dashboard application built with **Next.js** and **ShadCN UI**, designed to visualize project progress through interactives charts and timeline tables. The application features:
 
 - Comprehensive data visualization with **Chart.js**
 - Modern UI components powered by **ShadCN UI**
